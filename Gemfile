@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 gem 'jquery-rails'
@@ -7,7 +6,6 @@ gem 'kaminari'
 gem "twitter-bootstrap-rails"
 gem 'faker'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-gem 'devise'
 
 group :assets do
  gem 'sass-rails',   '~> 3.2.3'
@@ -24,3 +22,6 @@ group :production do
  gem 'pg'
  gem 'thin'
 end
+
+
+gem 'omniauth-facebook'
