@@ -6,16 +6,6 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
- <% if current_user -%>
-	 ようこそ、<%= current_user.name %>さん。 | <%= link_to 'logout', logout_path %>
- <% else -%>
-	 <%= link_to 'Twitterでログイン', 'auth/twitter' %>
-	 <%= link_to 'Facebookでログイン', 'auth/facebook' %>
- <% end -%>
- <%= yield %>
-
-</body>
 <html lang="en">
   <head>
     <meta charset="utf-8">
