@@ -15,6 +15,10 @@
 
 
 class User < ActiveRecord::Base
+  # サブカテゴリ
+  has_many :works, :through => :uid
+
+
   #---------------------------#
   # self.create_with_omniauth #
   #---------------------------#
@@ -22,15 +26,15 @@ class User < ActiveRecord::Base
     user = User.new
     user[:provider] = auth["provider"]
     user[:uid] = auth["uid"]
-    
+
     unless auth["info"].blank?
       user[:name] = auth["info"]["name"]
       user[:screen_name] = auth["info"]["nickname"]
       user[:image] = auth["info"]["image"]
     end
-    
+
     user.save
-    
+
     return user
   end
 

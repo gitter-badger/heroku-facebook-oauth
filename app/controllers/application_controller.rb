@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   # セッション有効期限延長
   before_filter :reset_session_expires
 
+  # Works取得
+  before_filter :works
+
   private
   def auth
     authenticate_or_request_with_http_basic do |user, pass|
@@ -28,5 +31,14 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.where( id: session[:user_id] ).first
   end
+
+
+  #--------------#
+  # works        #
+	# 最新の5件を表示#
+  #--------------#
+  def works
+    @works = Work.limit(5).order('created_at DESC')
+	end
 
 end

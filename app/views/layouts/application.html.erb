@@ -34,13 +34,16 @@
 						 <% if current_user -%>
 
 								<li><%= link_to '設定', edit_profile_path(current_user.id) %></li>
-								<li><%= link_to 'ログアウト', logout_path %></li>
-								<li><a class="brand font-small"><%= image_tag(current_user.image, :size => '25x25') %><%= current_user.name %></a></li>
+								<li><%= link_to 'ログアウト ', logout_path %></li>
+								<li><a class="brand font-small">  <%= image_tag(current_user.image, :size => '25x25') %> <%= current_user.name %></a></li>
 						 <% else -%>
 							 <li><%= link_to 'Facebookでログイン', 'auth/facebook' %></li>
 						 <% end -%>
             </ul>
-							<%= link_to edit_profile_path(1), :class => "btn btn-danger btn-large" do%><span class="fbbutton">要件登録</span><% end %>
+
+						 <% if current_user -%>
+							<%= link_to new_work_path, :class => "btn btn-danger btn-large" do%><span class="fbbutton"><i class="icon-plus"></i> ミッション作成</span><% end %>
+						 <% end -%>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -49,19 +52,43 @@
     <div class="container">
       <div class="content">
         <div class="row">
-           <div class="span9">
+           <div class="span6">
               <%= yield %>
 
             </div>
-            <div class="span3">
+            <div class="span6">
               <div class="well sidebar-nav">
+								 <span class="label label-warning recent_info">最新のミッション</span>
+
+								 <table class="table">
+									 <tr>
+										 <th class="span2">ミッション名</th>
+										 <th class="span2">作成日</th>
+										 <th class="span4">コメント</th>
+										 <th></th>
+										 <th></th>
+									 </tr>
+
+								 <% @works.each do |work| %>
+									 <tr>
+										 <td><%= work.name %></td>
+										 <td><%= work.end_time.strftime("%m/%d %H:%M") %></td>
+										 <td><%= work.description %></td>
+										 <td class="span2"><%= link_to work, :class => "btn btn-info" do%><span class="fbbutton">詳細</span><% end %></td>
+										 <% if work.user.image -%>
+											<td class="span2"><%= image_tag(work.user.image, :size => '60x60') %></td>
+										 <% end %>
+									 </tr>
+								 <% end %>
+								 </table>
+
               </div><!--/.well -->
             </div><!--/span-->
         </div><!--/row-->
       </div><!--/content-->
 
       <footer>
-        <p>&copy; Company 2012</p>
+				<span class="badge badge-inverse">&copy; PocketWorks 2012</span>
       </footer>
 
     </div> <!-- /container -->

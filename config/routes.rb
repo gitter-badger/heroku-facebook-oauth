@@ -1,4 +1,6 @@
 PoketWorks::Application.routes.draw do
+  resources :works
+
   root :to => 'welcome#index'
   get "welcome/index"
   resources :profiles
