@@ -1,6 +1,7 @@
 PoketWorks::Application.routes.draw do
   root :to => 'welcome#index'
   get "welcome/index"
+  resources :profiles
 
 	# for omniauth settings
 	match 'auth/:provider/callback' => 'sessions#callback'

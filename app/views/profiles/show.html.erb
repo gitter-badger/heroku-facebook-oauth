@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @profile.email %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @profile.description %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @profile.address %>
+</p>
+
+<p>
+  <b>Profile url:</b>
+  <%= @profile.profile_url %>
+</p>
+
+<p>
+  <b>Blog url:</b>
+  <%= @profile.blog_url %>
+</p>
+
+<p>
+  <b>Facebook url:</b>
+  <%= @profile.facebook_url %>
+</p>
+
+<p>
+  <b>Twitter url:</b>
+  <%= @profile.twitter_url %>
+</p>
+
+<p>
+  <b>Linkedin:</b>
+  <%= @profile.Linkedin %>
+</p>
+
+<p>
+  <b>Talktag:</b>
+  <%= @profile.talktag %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

@@ -1,0 +1,57 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_url %><br />
+    <%= f.text_field :profile_url %>
+  </div>
+  <div class="field">
+    <%= f.label :blog_url %><br />
+    <%= f.text_field :blog_url %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook_url %><br />
+    <%= f.text_field :facebook_url %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter_url %><br />
+    <%= f.text_field :twitter_url %>
+  </div>
+  <div class="field">
+    <%= f.label :Linkedin %><br />
+    <%= f.text_field :Linkedin %>
+  </div>
+  <div class="field">
+    <%= f.label :talktag %><br />
+    <%= f.text_area :talktag %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
